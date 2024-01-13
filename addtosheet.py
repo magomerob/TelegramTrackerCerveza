@@ -1,5 +1,6 @@
 import gspread
 from datetime import datetime
+from pytz import timezone
 
 def addRow(text):
     #Loguearse con los credenciales
@@ -9,7 +10,8 @@ def addRow(text):
     sh = gc.open("Cerveza2024").sheet1
 
     #Guardar los strings con la fecha y hora
-    dt = datetime.now()
+    mad = timezone('Europe/Madrid')
+    dt = datetime.now(mad)
     dia = dt.strftime("%d/%m/%Y")
     hora = dt.strftime("%H:%M")
 
